@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #game-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        #player-info {
+            text-align: left;
+        }
+
+        #chips {
+            font-size: 18px;
+        }
+
+        #actions {
+            margin-top: 20px;
+        }
+
+        #hands {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="player-info">
+        <h2>Player</h2>
+        <p id="chips">Chips: 100</p>
+    </div>
+    <div id="actions">
+        <button onclick="startHand()">Deal</button>
+        <button onclick="hit()" disabled>Hit</button>
+        <button onclick="stand()" disabled>Stand</button>
+        <a href="../casino.html">Back to Floor</a>
+    </div>
+</div>
+
+<div id="hands">
+    <h2>Hands</h2>
+    <p id="player-hand"></p>
+    <p id="dealer-hand"></p>
+</div>
+
+<script>
+    let playerChips = 100;
+    let playerHand = [];
+    let dealerHand = [];
+
+    function startHand() {
+        // Reset hands and deal cards
+        playerHand = [getRandomCard(), getRandomCard()];
+        dealerHand = [getRandomCard(), getRandomCard()];
+
+        // Display hands
+        document.getElementById("player-hand").textContent = "Player's Hand: " + playerHand.join(' ');
+        document.getElementById("dealer-hand").textContent = "Dealer's Hand: " + dealerHand[0] + " ?";
+
+        // Enable hit and stand buttons
+        document.querySelectorAll("#actions button").forEach(button => button.disabled = false);
+    }
+
+    function hit() {
+        // Deal another card to the player
+        playerHand.push(getRandomCard());
+
+        // Display updated player's hand
+        document.getElementById("player-hand").textContent = "Player's Hand: " + playerHand.join(' ');
+
+        // Check if the player busted
+        if (calculateScore(playerHand) > 21) {
+            endHand();
+        }
+    }
+
+    function stand() {
+        // Player chooses to stand, proceed to dealer's turn
+        endHand();
+    }
+
+    function endHand() {
+        // Dealer's turn
+        playDealerTurn();
+
+        // Determine the winner and update chips
+        determineWinner();
+
+        // Enable the "Deal" button for a new round
+        document.querySelector("#actions button:first-child").disabled = false;
+    }
+
+    function playDealerTurn() {
+        // Dealer hits until their score is 17 or higher
+        while (calculateScore(dealerHand) < 17) {
+            dealerHand.push(getRandomCard());
+        }
+
+        // Display the final dealer's hand
+        document.getElementById("dealer-hand").textContent = "Dealer's Hand: " + dealerHand.join(' ');
+    }
+
+    function determineWinner() {
+        const playerScore = calculateScore(playerHand);
+        const dealerScore = calculateScore(dealerHand);
+
+        // Determine the winner and update chips
+        if (playerScore > 21 || (dealerScore <= 21 && dealerScore >= playerScore)) {
+            alert("Dealer wins!");
+            playerChips -= 10; // Assuming a bet of 10 chips for simplicity
+        } else {
+            alert("Player wins!");
+            playerChips += 10; // Assuming a bet of 10 chips for simplicity
+        }
+
+        // Update chips display
+        document.getElementById("chips").textContent = "Chips: " + playerChips;
+
+        // Disable hit and stand buttons
+        document.querySelectorAll("#actions button:nth-child(2), #actions button:nth-child(3)").forEach(button => button.disabled = true);
+    }
+
+    function getRandomCard() {
+        // Simulate dealing a card with a random value between 1 and 11
+        return Math.floor(Math.random() * 11) + 1;
+    }
+
+    function calculateScore(hand) {
+        // Calculate the score of a hand
+        return hand.reduce((sum, card) => sum + card, 0);
+    }
+</script>
+
+</body>
+</html>
