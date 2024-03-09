@@ -10,6 +10,37 @@ body {
     overflow: hidden;
 }
 
+.sidewalk{
+    height:80px;
+    top:-80px;
+
+    width:100vw;    
+    background-image: url('../resources/concrete.jpg');
+    background-repeat: repeat-x;
+    background-size: 120px;
+    background-position: center center;
+    object-fit: contain;
+    // background-color: red;
+    position: absolute;
+    left:0px;
+}
+
+#sidewalk{
+    height:60px !important;
+    top:120px !important;
+    
+    width:100vw;    
+    background-image: url('../resources/concrete.jpg');
+    background-repeat: repeat-x;
+    background-size: 120px;
+    background-position: center center;
+    object-fit: contain;
+    background-color: red;
+    position: absolute;
+    left:0px;
+    z-index: -5;
+}
+
 .bar-window{
     width:300px;
     height:200px;
@@ -41,6 +72,8 @@ body {
     background-position: center center;
 }
 
+
+
 #casino{
     border:40px solid purple;
 
@@ -65,15 +98,14 @@ body {
 
 
 #interior-container {
-    width: 500px;
+    // width: 500px;
     height: 20px !important;
-    margin: 50px auto;
+    // margin: 20px auto;
     background-image: url('../resources/road.jpg');
     background-repeat: repeat;
     background-size: 100px;
     background-position: center center;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.356);
-
     &:before{
         content: '';
         height:2px;
@@ -111,6 +143,15 @@ body {
     }
 }
 
+.npcCar{
+
+        &:before{
+            content:url('../resources/svg/police.svg');
+        }
+    
+    
+}
+
 
   
 
@@ -126,16 +167,40 @@ body {
 
 }
 
+
+//gas
 #building3{
-    background-color: orange !important;
-&:after{
-    content:'Gas and Lotto';
-    color:white;
     position:absolute;
     top:0px;
     text-align: center;
-}}
+    background: none !important;
+    overflow: hidden;
+    &:before{
+        content:url('../resources/buildings/gas.svg');
+        transform:none;
+        top:0px;
+        left:0px;
+        height:100%;
+        width:100%;
+        background: none !important;
+}
+}
 
+//pot
+#building5{
+
+    position:absolute;
+    top:0px;
+    text-align: center;
+    background: none !important;
+    &:before{
+        content:url('../resources/buildings/pot.svg');
+        transform:none;
+        top:0px;
+        left:0px;
+        background: none !important;
+}
+}
 //bar
 #building4{
 
@@ -418,6 +483,28 @@ body {
     // transition: transform 0.5s ease-out;
     background-color: aqua;
 }
+
+.dead{
+    z-index: -2;
+    background-color: red;
+    display: flex;
+align-items: center;
+    &:before{
+        z-index: -10;
+        content:url('../resources/player/splatter.svg');
+        transform:none;
+        top:inherit;
+        height:200%;
+        width:200%;
+
+        left:inherit;
+        position: absolute;
+        background: none !important;
+        transform-origin: center center;
+    }
+
+}
+
 #player{
     height:23px;
     width:23px;

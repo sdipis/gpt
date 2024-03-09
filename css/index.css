@@ -10,6 +10,34 @@ body {
   overflow: hidden;
 }
 
+.sidewalk {
+  height: 80px;
+  top: -80px;
+  width: 100vw;
+  background-image: url("../resources/concrete.jpg");
+  background-repeat: repeat-x;
+  background-size: 120px;
+  background-position: center center;
+  object-fit: contain;
+  position: absolute;
+  left: 0px;
+}
+
+#sidewalk {
+  height: 60px !important;
+  top: 120px !important;
+  width: 100vw;
+  background-image: url("../resources/concrete.jpg");
+  background-repeat: repeat-x;
+  background-size: 120px;
+  background-position: center center;
+  object-fit: contain;
+  background-color: red;
+  position: absolute;
+  left: 0px;
+  z-index: -5;
+}
+
 .bar-window {
   width: 300px;
   height: 200px;
@@ -62,9 +90,7 @@ body {
 }
 
 #interior-container {
-  width: 500px;
   height: 20px !important;
-  margin: 50px auto;
   background-image: url("../resources/road.jpg");
   background-repeat: repeat;
   background-size: 100px;
@@ -106,6 +132,10 @@ body {
   content: url("../resources/svg/truck.svg");
 }
 
+.npcCar:before {
+  content: url("../resources/svg/police.svg");
+}
+
 #building {
   width: 100px;
   height: 150px;
@@ -117,14 +147,34 @@ body {
 }
 
 #building3 {
-  background-color: orange !important;
-}
-#building3:after {
-  content: "Gas and Lotto";
-  color: white;
   position: absolute;
   top: 0px;
   text-align: center;
+  background: none !important;
+  overflow: hidden;
+}
+#building3:before {
+  content: url("../resources/buildings/gas.svg");
+  transform: none;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: none !important;
+}
+
+#building5 {
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  background: none !important;
+}
+#building5:before {
+  content: url("../resources/buildings/pot.svg");
+  transform: none;
+  top: 0px;
+  left: 0px;
+  background: none !important;
 }
 
 #building4 {
@@ -381,6 +431,25 @@ body {
 
 .enemy {
   background-color: aqua;
+}
+
+.dead {
+  z-index: -2;
+  background-color: red;
+  display: flex;
+  align-items: center;
+}
+.dead:before {
+  z-index: -10;
+  content: url("../resources/player/splatter.svg");
+  transform: none;
+  top: inherit;
+  height: 200%;
+  width: 200%;
+  left: inherit;
+  position: absolute;
+  background: none !important;
+  transform-origin: center center;
 }
 
 #player {
