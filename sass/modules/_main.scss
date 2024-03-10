@@ -128,7 +128,7 @@ body {
 #player {
     width: 20px;
     height: 20px;
-    background-color: blue;
+    // background-color: blue;
     position: absolute;
     z-index: 2;
 }
@@ -173,48 +173,48 @@ body {
     position:absolute;
     top:0px;
     text-align: center;
-    background: none !important;
+    background: darkslateblue !important;
     overflow: hidden;
-    &:before{
-        content:url('../resources/buildings/gas.svg');
-        transform:none;
+    &:after{
+        content:"Gas Beer Lotto";
+        color:white;
+        position:absolute;
         top:0px;
-        left:0px;
-        height:100%;
-        width:100%;
-        background: none !important;
-}
+        text-align: center;
+    }
+//     &:before{
+//         content:url('../resources/buildings/gas.svg');
+//         transform:none;
+//         top:0px;
+//         left:0px;
+//         height:100%;
+//         width:100%;
+//         background: none !important;
+// }
 }
 
-//pot
-#building5{
 
-    position:absolute;
-    top:0px;
-    text-align: center;
-    background: none !important;
-    &:before{
-        content:url('../resources/buildings/pot.svg');
-        transform:none;
-        top:0px;
-        left:0px;
-        background: none !important;
-}
-}
 //bar
 #building4{
 
     position:absolute;
     top:0px;
     text-align: center;
-    background: none !important;
-    &:before{
-        content:url('../resources/buildings/bar.svg');
-        transform:none;
+    background: orangered !important;
+    &:after{
+        content:"The Bar";
+        color:white;
+        position:absolute;
         top:0px;
-        left:0px;
-        background: none !important;
-}
+        text-align: center;
+    }
+//     &:before{
+//         content:url('../resources/buildings/bar.svg');
+//         transform:none;
+//         top:0px;
+//         left:0px;
+//         background: none !important;
+// }
 }
 
 #building5{
@@ -226,24 +226,25 @@ body {
     position:absolute;
     top:0px;
     text-align: center;
-}}
+}
+}
 
 #building6{
-    .overlay{
-        top:30%;
-    }
+    // .overlay{
+    //     top:30%;
+    // }
     position:absolute;
     top:0px;
     text-align: center;
-    background: none !important;
-    &:before{
-        content:url('../resources/buildings/casino.svg');
-        transform:none;
-        top:0px;
-        left:0px;
-        background: none !important;
+    background: purple !important;
+//     &:before{
+//         content:url('../resources/buildings/casino.svg');
+//         transform:none;
+//         top:0px;
+//         left:0px;
+//         background: none !important;
 
-}
+// }
 }
 
 #interior-container {
@@ -473,7 +474,6 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50% !important;
-    background-color: rgb(255, 128, 0); /* Customize as needed */
     border:2px solid black;
     box-shadow: 0px 0px 3px black;
     z-index: 2;
@@ -506,8 +506,10 @@ align-items: center;
 }
 
 #player{
-    height:23px;
-    width:23px;
+    height:20px;
+    width:20px;
+    background-color: orange;
+
 
 }
 .explosion {

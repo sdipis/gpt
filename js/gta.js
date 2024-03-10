@@ -635,6 +635,7 @@ class Bullet {
   //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
  //          Initialize            //
 //________________________________//
+
 const bullets = [];
 const currentPage = document.body.dataset.page;
 const buildings = createBuildings(currentPage);
@@ -717,7 +718,7 @@ for (let i = 0; i <
                 const directionX = (keysPressed['ArrowRight'] ? 1 : 0) + (keysPressed['ArrowLeft'] ? -1 : 0);
                 const directionY = (keysPressed['ArrowDown'] ? 1 : 0) + (keysPressed['ArrowUp'] ? -1 : 0);
                 player.move(directionX, directionY);
-                }
+                }; // handle player movement
 
                 document.addEventListener('keydown', (event) => {
                        switch (event.key) {
@@ -744,6 +745,7 @@ for (let i = 0; i <
                                 break;
                     }
                 }); // player car movement event listeners
+
                 document.addEventListener('keydown', (event) => {
                     // Check if the player is in the car
                     if (player.inCar) {
@@ -769,9 +771,10 @@ for (let i = 0; i <
                 });
 
   //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
- //           Eat NPC              //
+ //           NPC Col              //
 //________________________________//
 
+// player =/= enemy collisions
 function checkCollisionWithEnemies() {
     for (const enemy of enemies) {
         const playerRect = player.element.getBoundingClientRect();
@@ -791,6 +794,18 @@ function checkCollisionWithEnemies() {
         }
     }
 }
+// handle enemy hits (bullets)
+function enemyHit(enemy) {
+    // Decrease enemy health
+    enemy.health = (enemy.health || 0) - 1;
+
+    // Check if enemy is "dead"
+    if (enemy.health <= 0) {
+        console.log('Target Eliminated');
+        // Remove the enemy
+        enemies.splice(enemies.indexOf(enemy), 1);
+    }
+}
 
 
    //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
@@ -805,17 +820,6 @@ function gameLoop() {
     sundayDriver.update();
 
 
-    function enemyHit(enemy) {
-        // Decrease enemy health
-        enemy.health = (enemy.health || 0) - 1;
-    
-        // Check if enemy is "dead"
-        if (enemy.health <= 0) {
-            console.log('Target Eliminated');
-            // Remove the enemy
-            enemies.splice(enemies.indexOf(enemy), 1);
-        }
-    }
     
     // Check collision with enemies
     for (let i = bullets.length - 1; i >= 0; i--) {
@@ -846,6 +850,25 @@ function gameLoop() {
             bullet.update();
         }
     //car collisions
+
+    // function checkNpcCollision() {
+    //     // Check if the player is in the car
+    //         const playerRect = player.car.element.getBoundingClientRect();
+    //         const npcRect = sundayDriver.element.getBoundingClientRect();
+        
+    //             if (
+    //                 playerRect.left < npcRect.right &&
+    //                 playerRect.right > npcRect.left &&
+    //                 playerRect.top < npcRect.bottom &&
+    //                 playerRect.bottom > npcRect.top
+    //             ) {
+    //                 // Handle collision with the enemy (e.g., decrease player's health)
+    //                 // handleCarCollision();
+    //                 player.speed = 0;
+    //                 player.element.classList.add('dead');
+    //                 console.log('Car collided with player!');
+    //             }
+    // }
 
     function checkCarCollision() {
         // Check if the player is in the car
