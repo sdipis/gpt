@@ -134,12 +134,13 @@ body {
 }
 
 #car{
-    background-color: transparent !important;
-}
+    // background-color: red !important;
+    
 
-.car{
     &:before{
         content:url('../resources/svg/truck.svg');
+            
+    
     }
 }
 
@@ -199,22 +200,16 @@ body {
 
     position:absolute;
     top:0px;
-    text-align: center;
+    // text-align: center;
     background: orangered !important;
     &:after{
         content:"The Bar";
         color:white;
         position:absolute;
-        top:0px;
+        // top:0px;
         text-align: center;
+        
     }
-//     &:before{
-//         content:url('../resources/buildings/bar.svg');
-//         transform:none;
-//         top:0px;
-//         left:0px;
-//         background: none !important;
-// }
 }
 
 #building5{
@@ -469,7 +464,7 @@ body {
     } 
 }
 
-#player, .enemy{
+.enemy{
     position: absolute;
     width: 20px;
     height: 20px;

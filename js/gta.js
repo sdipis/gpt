@@ -7,7 +7,10 @@
 class Player {
     constructor() {
         this.car = new Car();
+
+        if(document.body.dataset.page==='interior'){
         this.car.setPosition(680, 240, 90); // Set the initial position (example: x=200, y=300) and angle (45 degrees)
+        }
         this.element = document.getElementById('player');
         this.x = 0;
         this.y = 0;
@@ -465,7 +468,7 @@ class Car {
         this.element.id = 'car';
         this.element.style.position = 'absolute';
             this.element.style.width = '150px';
-            this.element.style.height = '75px';
+            this.element.style.height = '70px';
         this.speed = 3;
         this.angle = 0;  // Initial angle in radians
         document.body.appendChild(this.element);
@@ -522,12 +525,20 @@ class NpcCar extends Car {
 
         // Set a specific speed for the NPC car
         this.speed = 2;
+        this.element.id="npcCar";
         this.element.style.height = '60px';
-        this.element.style.left = '120px';
+        this.element.style.left = '130px';
         this.element.style.left = `${initialX}px`;
         this.element.style.top = `${initialY}px`;
         this.element.classList.add('npcCar')
+
+        
     }
+
+    getCollisionRect() {
+        // Return the collision rectangle based on the NPC car's position and size
+        return this.element.getBoundingClientRect();
+      }
 
     // Override the update method to make the NPC car move forward
     update() {
@@ -642,7 +653,8 @@ const buildings = createBuildings(currentPage);
 const player = new Player();
 const npcCarInitialX = 20;
 const npcCarInitialY = 0;
-const sundayDriver = new NpcCar(npcCarInitialX, npcCarInitialY);const enemies = [];
+const sundayDriver = new NpcCar(npcCarInitialX, npcCarInitialY);
+const enemies = [];
 const keysPressed = {};
 const reload_note=document.querySelector('.reloadText');
 
@@ -701,7 +713,7 @@ for (let i = 0; i <
         enemies.push(new Enemy());
 }}else{
     for (let i = 0; i < 
-        12 //patrons will spawn in the outside portions
+        0 //patrons will spawn in the outside portions
         ; i++) {
         enemies.push(new Enemy());
     }
@@ -807,6 +819,12 @@ function enemyHit(enemy) {
     }
 }
 
+  //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
+ //        Player Col              //
+//________________________________//
+
+
+
 
    //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
   //           Game Loop            //
@@ -818,7 +836,70 @@ function gameLoop() {
     // Update player
     player.update();
     sundayDriver.update();
+    checkPlayerCollisionsWithCar();
 
+    function checkCarCollision() {
+        // Check if the player is in the car
+        if (player.inCar) {
+            const playerRect = player.car.element.getBoundingClientRect();
+        
+            for (const enemy of enemies) {
+                const enemyRect = enemy.element.getBoundingClientRect();
+        
+                if (
+                    playerRect.left < enemyRect.right &&
+                    playerRect.right > enemyRect.left &&
+                    playerRect.top < enemyRect.bottom &&
+                    playerRect.bottom > enemyRect.top
+                ) {
+                    // Handle collision with the enemy (e.g., decrease player's health)
+                    // handleCarCollision();
+                    enemy.speed = 0;
+                    enemy.element.classList.add('dead');
+                    console.log('Car collided with an enemy!');
+                }
+            }
+        }
+    }
+
+
+ // Add collision detection logic
+ function checkPlayerCollisionsWithCar() {
+    const playerRect = player.element.getBoundingClientRect();
+    const npcCarRect = sundayDriver.element.getBoundingClientRect();
+
+    // Check for collision
+    if (
+      playerRect.left < npcCarRect.right &&
+      playerRect.right > npcCarRect.left &&
+      playerRect.top < npcCarRect.bottom &&
+      playerRect.bottom > npcCarRect.top
+    ) {
+      // Collision occurred, implement your collision handling logic
+      console.log('Player has been hit by a car!');
+      handleCarCollision();
+
+    }
+  }
+
+  function handleCarCollision() {
+    // Assuming player is an object with properties like x, y, and speed
+
+    // You can also change the player's position to simulate a jump
+    player.x -= -50; // Move the player upward by 50 pixels
+
+    // Add a class to the player element to apply a jumping animation if needed
+    player.element.classList.add('jumping');
+
+    // Remove the jumping class after a delay to stop the animation
+    setTimeout(() => {
+        player.element.classList.remove('jumping');
+    }, 1000); // Adjust the delay as needed
+}
+
+
+    
+    
 
     
     // Check collision with enemies
@@ -870,30 +951,7 @@ function gameLoop() {
     //             }
     // }
 
-    function checkCarCollision() {
-        // Check if the player is in the car
-        if (player.inCar) {
-            const playerRect = player.car.element.getBoundingClientRect();
-        
-            for (const enemy of enemies) {
-                const enemyRect = enemy.element.getBoundingClientRect();
-        
-                if (
-                    playerRect.left < enemyRect.right &&
-                    playerRect.right > enemyRect.left &&
-                    playerRect.top < enemyRect.bottom &&
-                    playerRect.bottom > enemyRect.top
-                ) {
-                    // Handle collision with the enemy (e.g., decrease player's health)
-                    // handleCarCollision();
-                    enemy.speed = 0;
-                    enemy.element.classList.add('dead');
-                    console.log('Car collided with an enemy!');
-                }
-            }
-        }
-    }
-
+  
     // Update enemies
     for (const enemy of enemies) {
         enemy.update();}
@@ -908,3 +966,135 @@ function gameLoop() {
 
 // Start the game loop
 gameLoop();
+
+
+
+
+
+
+ //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
+ //         ANIMATIONS            //
+//________________________________//
+// Define SVG frames for walking in different directions
+const svgFramesUp = [
+    document.getElementById('mainPlayerWalkUpF1'),
+    document.getElementById('mainPlayerWalkUpF2'),
+    document.getElementById('mainPlayerWalkUpF3')
+  ];
+  
+  const svgFramesDown = [
+    document.getElementById('mainPlayerWalkDownF1'),
+    document.getElementById('mainPlayerWalkDownF2'),
+    document.getElementById('mainPlayerWalkDownF3')
+  ];
+  
+  const svgFramesLeft = [
+    document.getElementById('mainPlayerWalkLeftF1'),
+    document.getElementById('mainPlayerWalkLeftF2'),
+    document.getElementById('mainPlayerWalkLeftF3')
+  ];
+  
+  const svgFramesRight = [
+    document.getElementById('mainPlayerWalkRightF1'),
+    document.getElementById('mainPlayerWalkRightF2'),
+    document.getElementById('mainPlayerWalkRightF3')
+  ];
+  
+  // Define SVG frame for shooting
+  const svgFrameShooting = document.getElementById('mainPlayerShoot');
+  
+  let currentFrames = [svgFramesDown[0]]; // Initial direction frame (walking down)
+  let currentIndex = 0;
+  let isWalking = false;
+  let isShooting = false;
+  let animationTimeout;
+  let opacityTrigger = true;
+
+  if(opacityTrigger===true){
+    resetOpacity();
+    // Set the opacity of the first frame in playerWalkDown to 1
+    if (svgFramesDown[0]) {
+        svgFramesDown[0].style.opacity = 1;
+      }  }
+  
+  function startAnimation(frames) {
+    resetOpacity();
+    isWalking = true;
+    currentFrames = frames;
+    animateFrames();
+  }
+  
+  function startShootingAnimation() {
+    resetOpacity();
+    isShooting = true;
+    currentFrames = [svgFrameShooting];
+    animateFrames();
+  }
+  
+  function stopAnimation() {
+    isWalking = false;
+    isShooting = false;
+    currentIndex = 0;
+    clearTimeout(animationTimeout);
+  }
+  
+  function resetOpacity() {
+    // Reset the opacity for all frames
+    const allFrames = [...svgFramesUp, ...svgFramesDown, ...svgFramesLeft, ...svgFramesRight, svgFrameShooting];
+    for (const frame of allFrames) {
+      if (frame) {
+        frame.style.opacity = 0;
+      }
+    }
+  }
+  
+  function animateFrames() {
+    if (isWalking || isShooting) {
+      for (let i = 0; i < currentFrames.length; i++) {
+        if (currentFrames[i]) {
+          currentFrames[i].style.opacity = i === currentIndex ? 1 : 0;
+        }
+      }
+  
+      currentIndex = (currentIndex + 1) % currentFrames.length;
+  
+      // Adjust the delay (in milliseconds) to control the speed of the animation
+      animationTimeout = setTimeout(animateFrames, 500); // Example: 500ms delay
+    }
+  }
+  
+  // Your existing keydown and keyup event listeners...
+  document.addEventListener('keydown', function (event) {
+    keysPressed[event.key] = true;
+  
+    switch (event.key) {
+      case 'ArrowUp':
+        console.log('walking up');
+        startAnimation(svgFramesUp);
+        break;
+      case 'ArrowDown':
+        console.log('walking down');
+        startAnimation(svgFramesDown);
+        break;
+      case 'ArrowLeft':
+        console.log('walking left');
+        startAnimation(svgFramesLeft);
+        break;
+      case 'ArrowRight':
+        console.log('walking right');
+        startAnimation(svgFramesRight);
+        break;
+      case 'Space': // Assuming 'Space' key triggers shooting
+        console.log('shooting');
+        startShootingAnimation();
+        break;
+    }
+  });
+  
+  document.addEventListener('keyup', function (event) {
+    keysPressed[event.key] = false;
+  
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      stopAnimation();
+    }
+  });

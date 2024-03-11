@@ -649,7 +649,7 @@ for (let i = 0; i < 1; i++) {
 
 updateGame();
 
-
+// Player Movement
 function handlePlayerMovement() {
     const directionX = (keysPressed['ArrowRight'] ? 1 : 0) + (keysPressed['ArrowLeft'] ? -1 : 0);
     const directionY = (keysPressed['ArrowDown'] ? 1 : 0) + (keysPressed['ArrowUp'] ? -1 : 0);

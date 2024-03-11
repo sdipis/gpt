@@ -1,3 +1,67 @@
+#player {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  z-index: 2;
+  background: none !important;
+  transform-origin: center center;
+  overflow: visible;
+  padding: 0px;
+  margin: 0px;
+  overflow: visible !important;
+}
+#player svg {
+  padding: 0px;
+  opacity: 0.1;
+  position: absolute;
+  height: 60px !important;
+  width: 60px !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  transform-origin: center center;
+  object-position: top center;
+  object-fit: contain !important;
+  overflow: visible !important;
+  transform: translatex(-12.5px) !important;
+}
+#player #mainPlayerWalkLeftF1, #player #mainPlayerWalkLeftF2, #player #mainPlayerWalkLeftF3,
+#player #mainPlayerWalkRightF1, #player #mainPlayerWalkRightF2, #player #mainPlayerWalkRightF3 {
+  transform: translatey(-11.5px) !important;
+}
+
+.playerHead {
+  fill: #29abe2;
+  stroke-miterlimit: 10;
+  stroke-width: 10px;
+}
+
+.playerHead, .arms {
+  stroke: #000;
+  transform-origin: center center;
+}
+
+.arms {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: bevel;
+  stroke-width: 20px;
+}
+
+.feet {
+  stroke-width: 0px;
+  transform-origin: center center;
+}
+
 body {
   margin: 0;
   overflow: hidden;
@@ -123,11 +187,7 @@ body {
   z-index: 2;
 }
 
-#car {
-  background-color: transparent !important;
-}
-
-.car:before {
+#car:before {
   content: url("../resources/svg/truck.svg");
 }
 
@@ -163,14 +223,12 @@ body {
 #building4 {
   position: absolute;
   top: 0px;
-  text-align: center;
   background: orangered !important;
 }
 #building4:after {
   content: "The Bar";
   color: white;
   position: absolute;
-  top: 0px;
   text-align: center;
 }
 
@@ -391,7 +449,7 @@ body {
   background: none !important;
 }
 
-#player, .enemy {
+.enemy {
   position: absolute;
   width: 20px;
   height: 20px;
