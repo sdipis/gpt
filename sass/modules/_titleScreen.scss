@@ -1,0 +1,284 @@
+a{
+    text-decoration: none;
+}
+
+.cityScape{
+    height:100px;
+    width:200%;
+    margin:0px;
+    padding:0px;
+    position: absolute;
+    bottom:0px;
+    left:0px;
+
+    z-index: 0;
+                background-image: url('../resources/svg/city.svg');
+                background-repeat: repeat-x;
+                background-size: 120px;
+                background-position: center center;
+}
+
+.bodyWrapper{
+    height:fit-content;
+    width: fit-content;
+
+}
+
+#infoSection{
+    height:100vh;
+}
+
+.gameStartButtons{
+    display: flex;
+    justify-content: flex-end;
+    width:100%;
+}
+
+.howToPlay{
+    display: flex;
+    position: absolute;
+    height:100vh !important;
+    width:fit-content;
+    right:0px;
+    padding-left:50px;
+    padding-right:50px;
+    
+    background-color:rgb(255, 253, 182);
+    font-family: montserrat;
+
+            // background:rgb(62, 0, 0);
+            // background-image: url('../resources/textures/dark_wood.jpg');
+            background-repeat: repeat;
+            background-size: 200px;
+            background-position: center center;
+            box-shadow:0px 0px 20px rgba(0, 0, 0, 0.387);
+
+    ul{
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-end;
+        padding-bottom: 100px;
+        
+
+        
+        li{
+            display: flex;
+            justify-content: space-between;
+            padding:10px;
+
+            h2{
+                font-size: 2rem;
+                color:#000;
+                text-transform: uppercase;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+            h3{
+                font-size: 1.5rem;
+                color:#4f1380;
+                margin-top:20px;
+                span{
+                    background-color:#fef1a2;
+                    height:40px;
+                    min-width:40px !important;
+                    padding:10px;
+                    padding-left:15px;
+                    padding-right:15px;
+                    color:black;
+                    border-radius: 10px;
+                    box-shadow:0px 0px 10px rgba(0, 0, 0, 0.384);
+                }
+        
+            }
+        }
+    }
+}
+#titleScreenLogo{
+    position: absolute;
+    left:100px;
+    bottom:0;
+    top:0;
+    margin-bottom: auto;
+    margin-top: auto;
+    // margin-left: auto;
+    // margin-right: auto;
+    width:fit-content;
+    height:100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    svg{
+    width:50vw !important;
+    }
+}
+
+#titleWrapper{
+    height:100vh;
+    width: 100vw;
+    background: linear-gradient();
+}
+
+
+// gold button from uiverse
+
+.golden-button {
+
+    margin-top: 40px;
+    margin-right:10px;
+    touch-action: manipulation;
+    display: inline-block;
+    outline: none;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0.5em;
+    height: 4.5rem;
+    width:12rem;
+    line-height: 2.5em;
+    text-transform: uppercase;
+    padding: 0 1em;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+      inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+      inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    background-image: linear-gradient(
+      160deg,
+      #a54e07,
+      #b47e11,
+      #fef1a2,
+      #bc881b,
+      #a54e07
+    );
+    border: 1px solid #a55d07;
+    color: rgb(120, 50, 5);
+    text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+  
+  .golden-button:focus,
+  .golden-button:hover {
+    background-size: 150% 150%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23),
+      inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    border: 1px solid rgba(165, 93, 7, 0.6);
+    color: rgba(120, 50, 5, 0.8);
+  }
+  
+  .golden-button:active {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+      inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  }
+  
+
+  //background 
+
+  .titleBG {
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100vw;
+    height: 200vh;
+    overflow: scroll;
+    --color: #a748f5;
+    background: linear-gradient(95deg, var(--color) 25%, transparent 25%) -50px 0,
+          linear-gradient(-15deg, var(--color) 25%, transparent 25%) -50px 0,
+          linear-gradient(25deg, transparent 75%, var(--color) 75%) -50px 0,
+          linear-gradient(-45deg, transparent 75%, var(--color) 75%) -50px 0,
+          linear-gradient(-15deg, transparent 75%, var(--color) 75%) -50px 0;
+    background-color: #b669fd;
+    background-size: 80px 80px;
+  }
+
+  .topBar{
+    width:100vw;
+    height:10vh;
+    // background-color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    top:0px;
+left:0px;
+
+    padding:20px;
+    a h2{
+        cursor: pointer !important;
+        z-index: 10;
+    }
+    h2{
+        font-family: 'montserrat';
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+  }
+
+
+  .golden-sheen {
+
+    margin-top: 0px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+      inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+      inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    background-image: linear-gradient(
+      160deg,
+      #a54e07,
+      #b47e11,
+      #fef1a2,
+      #bc881b,
+      #a54e07
+    );
+    border: 1px solid #a55d07;
+    color: rgb(120, 50, 5);
+    text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-size: 100% 100%;
+    background-position: left;
+    animation: goldShimmer 15s ease infinite alternate;
+  }
+
+
+  //throbbing text
+
+  @keyframes throbbing {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(.95) skewY(-5deg);
+}
+100% {
+    transform: scale(1);
+}
+
+}
+
+.throbbing-text {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff5733; /* Choose your desired text color */
+    animation: throbbing 2.5s .5s infinite;
+}
+  
+
+//floating SVG on title screen
+.floating-svg {
+    position: absolute;
+    animation: floatDown linear infinite;
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}

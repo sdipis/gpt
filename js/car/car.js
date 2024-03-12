@@ -1,8 +1,6 @@
+const currentPage = document.body.dataset.page;
 
-  //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
- //          Car (truck)           //
-//________________________________//
-export class Car {
+export default class Car {
     constructor() {
         if (currentPage !== 'bar_interior' && currentPage !== 'casino_interior') {
             this.element = document.createElement('div');
@@ -10,12 +8,18 @@ export class Car {
         this.element.id = 'car';
         this.element.style.position = 'absolute';
             this.element.style.width = '150px';
-            this.element.style.height = '75px';
+            this.element.style.height = '70px';
         this.speed = 3;
         this.angle = 0;  // Initial angle in radians
         document.body.appendChild(this.element);
     }}
 
+    setPosition(x, y, spawnAngle = 0) {
+        // Set the initial position and angle of the car
+        this.element.style.left = `${x}px`;
+        this.element.style.top = `${y}px`;
+        this.setAngle(spawnAngle);
+    }
 
     setAngle(newAngle) {
         this.angle = newAngle;
