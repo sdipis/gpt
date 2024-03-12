@@ -1,0 +1,972 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#player {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  z-index: 2;
+  background: none !important;
+  transform-origin: center center;
+  overflow: visible;
+  padding: 0px;
+  margin: 0px;
+  overflow: visible !important;
+}
+#player svg {
+  padding: 0px;
+  opacity: 0.1;
+  position: absolute;
+  height: 60px !important;
+  width: 60px !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  transform-origin: center center;
+  object-position: top center;
+  object-fit: contain !important;
+  overflow: visible !important;
+  transform: translatex(-12.5px) !important;
+}
+#player #mainPlayerWalkLeftF1, #player #mainPlayerWalkLeftF2, #player #mainPlayerWalkLeftF3,
+#player #mainPlayerWalkRightF1, #player #mainPlayerWalkRightF2, #player #mainPlayerWalkRightF3 {
+  transform: translatey(-11.5px) !important;
+}
+
+.playerHead {
+  fill: #29abe2;
+  stroke-miterlimit: 10;
+  stroke-width: 10px;
+}
+
+.playerHead, .arms {
+  stroke: #000;
+  transform-origin: center center;
+}
+
+.arms {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: bevel;
+  stroke-width: 20px;
+}
+
+.feet {
+  stroke-width: 0px;
+  transform-origin: center center;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.sidewalk {
+  height: 60px !important;
+  top: 120px !important;
+  width: 100vw;
+  background-image: url("../resources/concrete.jpg");
+  background-repeat: repeat-x;
+  background-size: 60px;
+  background-position: center center;
+  object-fit: contain;
+  background-color: red;
+  position: absolute;
+  left: 0px;
+  z-index: -5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
+}
+
+.sidewalk-long {
+  width: 60px !important;
+  left: -60px !important;
+  height: 100vh;
+  background-image: url("../resources/concrete.jpg");
+  background-repeat: repeat-y;
+  background-size: 60px;
+  background-position: top center;
+  object-fit: contain;
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  z-index: -5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
+}
+
+.sidewalk-long-right {
+  width: 60px !important;
+  right: -60px !important;
+  height: 100vh;
+  background-image: url("../resources/concrete.jpg");
+  background-repeat: repeat-y;
+  background-size: 60px;
+  background-position: top center;
+  object-fit: contain;
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  z-index: -5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
+}
+
+.bar-window {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  top: 0px;
+  left: 30%;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 107, 0.54) 100%);
+  transform: skewX(10deg);
+}
+
+#bar-door {
+  background-color: yellow !important;
+}
+
+#casino {
+  border: 40px solid darkred;
+  background-image: url("../resources/casino/carpet.jpg");
+  background-repeat: repeat;
+  background-size: 80px;
+  background-position: center center;
+}
+
+#bar {
+  border: 40px solid darkred;
+  background-image: url("../resources/wood_floor.jpg");
+  background-repeat: repeat;
+  background-size: 400px;
+  background-position: center center;
+}
+
+#casino {
+  border: 40px solid purple;
+}
+
+#door-bar {
+  height: 100px;
+  width: 20px;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+}
+
+#game-container {
+  width: 500px;
+  height: 500px;
+  margin: 50px auto;
+  border: 1px solid #000;
+  position: relative;
+}
+
+#toll_1b {
+  height: 180px;
+  width: 5px;
+  background-color: red;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+#toll_1b:before {
+  display: none;
+}
+#toll_1b .overlay {
+  display: none !important;
+}
+
+#toll_2a {
+  height: 180px;
+  width: 5px;
+  background-color: red;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+#toll_2a:before {
+  display: none;
+}
+#toll_2a .overlay {
+  display: none !important;
+}
+
+#toll_2b {
+  width: 180px;
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  right: 200px;
+  bottom: 0px;
+}
+#toll_2b:before {
+  display: none;
+}
+#toll_2b .overlay {
+  display: none !important;
+}
+
+#toll_3a {
+  width: 180px;
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  right: 200px;
+}
+#toll_3a:before {
+  display: none;
+}
+#toll_3a .overlay {
+  display: none !important;
+}
+
+#interior-container {
+  height: 20px !important;
+  background-image: url("../resources/road.jpg");
+  background-repeat: repeat;
+  background-size: 100px;
+  background-position: center center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.356);
+  z-index: -2;
+}
+#interior-container:before {
+  content: "";
+  height: 2px;
+  width: 100vw;
+  background-color: yellow;
+  position: absolute;
+  top: 65px;
+  left: 0px;
+}
+#interior-container:after {
+  content: "";
+  height: 2px;
+  width: 100vw;
+  background-color: yellow;
+  position: absolute;
+  top: 58px;
+  left: 0px;
+}
+
+.interior-container-two {
+  height: 100vh !important;
+  width: 200px;
+  background-image: url("../resources/road.jpg");
+  background-repeat: repeat;
+  background-size: 100px;
+  background-position: center center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.356);
+  z-index: -1;
+  position: absolute;
+  right: 190px;
+}
+.interior-container-two:before {
+  content: "";
+  width: 2px;
+  height: 100vw;
+  background-color: yellow;
+  position: absolute;
+  left: 85px;
+  top: 0px;
+}
+.interior-container-two:after {
+  content: "";
+  width: 2px;
+  height: 100vw;
+  background-color: yellow;
+  position: absolute;
+  left: 95px;
+  top: 0px;
+}
+
+#player {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: 2;
+}
+
+#car:before {
+  content: url("../resources/svg/truck.svg");
+}
+
+.npcCar {
+  height: 60px !important;
+  width: 120px !important;
+  border-radius: 15px;
+}
+.npcCar:before {
+  content: url("../resources/svg/police.svg");
+}
+
+#building {
+  width: 100px;
+  height: 150px;
+  background-color: rgb(76, 76, 76);
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  box-shadow: 10px 10px 0px black;
+}
+
+#building3 {
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  background: darkslateblue !important;
+  overflow: hidden;
+}
+#building3:after {
+  content: "Gas Beer Lotto";
+  color: white;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+}
+
+#building4 {
+  position: absolute;
+  top: 0px;
+  background: orangered !important;
+}
+#building4:after {
+  content: "The Bar";
+  color: white;
+  position: absolute;
+  text-align: center;
+}
+
+#building5, #pot_right {
+  background-color: green !important;
+}
+#building5:after, #pot_right:after {
+  content: "420Spot";
+  color: white;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+}
+
+#building6 {
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  background: purple !important;
+}
+
+#interior-container {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  text-align: center;
+  padding: 50px;
+}
+#interior-container .building {
+  z-index: 4;
+  font-family: montserrat;
+  font-size: 1.5rem !important;
+  perspective: 300px; /* Adjust the perspective value for the desired depth effect */
+  position: relative;
+}
+#interior-container .building .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+#interior-container .building .overlay:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 100%;
+  z-index: -4;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.28) 50%);
+  transform-origin: bottom right;
+  transform: skewy(-25deg);
+  z-index: -2;
+}
+#interior-container .building:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content; /* Adjust the height of the base */
+  background-color: #404040; /* Darkest color for the base */
+}
+#interior-container .building:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -4;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.28) 100%);
+  transform-origin: top center;
+  transform: skewX(-25deg);
+  z-index: -2;
+}
+
+.building {
+  z-index: 4;
+  font-family: montserrat;
+  font-size: 1.5rem !important;
+  perspective: 300px; /* Adjust the perspective value for the desired depth effect */
+  position: relative;
+}
+.building .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+.building .overlay:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 100%;
+  z-index: -4;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.28) 50%);
+  transform-origin: bottom right;
+  transform: skewy(-25deg);
+  z-index: -2;
+}
+.building:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content; /* Adjust the height of the base */
+  background-color: #404040; /* Darkest color for the base */
+}
+.building:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -4;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.28) 100%);
+  transform-origin: top center;
+  transform: skewX(-25deg);
+  z-index: -2;
+}
+
+/* Add door styles */
+#door, #door-home, #door-casino, #door-warehouse {
+  width: 20px;
+  height: 50px;
+  background-color: #ff00ea; /* Brown color for the door */
+  position: absolute;
+  z-index: 2; /* Make sure the door is above the background */
+  border-radius: 0px 50% 50% 0px;
+}
+
+.bullet {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+body {
+  margin: 0;
+  background-color: darkgreen;
+  background-image: url("../resources/grass.jpg");
+  background-repeat: repeat;
+  background-size: 100px;
+  background-position: center center;
+}
+
+#bar #player, #casino #player {
+  width: 40px;
+  height: 40px;
+}
+
+#poker-table {
+  background: none !important;
+}
+#poker-table .overlay {
+  display: none;
+}
+#poker-table:before {
+  content: url("../resources/casino/pokerTable.svg");
+  transform: none;
+  top: 0px;
+  left: 0px;
+  background: none !important;
+}
+
+#blackjack-table {
+  background: none !important;
+}
+#blackjack-table .overlay {
+  display: none;
+}
+#blackjack-table:before {
+  content: url("../resources/casino/blackjackTable.svg");
+  transform: none;
+  top: 0px;
+  left: 0px;
+  background: none !important;
+}
+
+.enemy {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50% !important;
+  border: 2px solid black;
+  box-shadow: 0px 0px 3px black;
+  z-index: 2;
+}
+
+.enemy {
+  background-color: aqua;
+}
+
+.dead {
+  z-index: -2;
+  background-color: red;
+  display: flex;
+  align-items: center;
+}
+.dead:before {
+  z-index: -10;
+  content: url("../resources/player/splatter.svg");
+  transform: none;
+  top: inherit;
+  height: 200%;
+  width: 200%;
+  left: inherit;
+  position: absolute;
+  background: none !important;
+  transform-origin: center center;
+}
+
+#player {
+  height: 20px;
+  width: 20px;
+  background-color: orange;
+}
+
+.explosion {
+  transform: scale(1.5);
+  opacity: 0;
+}
+
+.no-highlight {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-text-select: none;
+  -webkit-user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cityScape {
+  height: 100px;
+  width: 200%;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 0;
+  background-image: url("../resources/svg/city.svg");
+  background-repeat: repeat-x;
+  background-size: 120px;
+  background-position: center center;
+}
+
+.bodyWrapper {
+  height: fit-content;
+  width: fit-content;
+}
+
+#infoSection {
+  height: 100vh;
+}
+
+.gameStartButtons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.howToPlay {
+  display: flex;
+  position: absolute;
+  height: 100vh !important;
+  width: fit-content;
+  right: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: rgb(255, 253, 182);
+  font-family: montserrat;
+  background-repeat: repeat;
+  background-size: 200px;
+  background-position: center center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.387);
+}
+.howToPlay ul {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  padding-bottom: 100px;
+}
+.howToPlay ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.howToPlay ul li h2 {
+  font-size: 2rem;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.howToPlay ul li h3 {
+  font-size: 1.5rem;
+  color: #4f1380;
+  margin-top: 20px;
+}
+.howToPlay ul li h3 span {
+  background-color: #fef1a2;
+  height: 40px;
+  min-width: 40px !important;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.384);
+}
+
+#titleScreenLogo {
+  position: absolute;
+  left: 100px;
+  bottom: 0;
+  top: 0;
+  margin-bottom: auto;
+  margin-top: auto;
+  width: fit-content;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+#titleScreenLogo svg {
+  width: 50vw !important;
+}
+
+#titleWrapper {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient();
+}
+
+.golden-button {
+  margin-top: 40px;
+  margin-right: 10px;
+  touch-action: manipulation;
+  display: inline-block;
+  outline: none;
+  font-family: inherit;
+  font-size: 1em;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0.5em;
+  height: 4.5rem;
+  width: 12rem;
+  line-height: 2.5em;
+  text-transform: uppercase;
+  padding: 0 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px rgb(139, 66, 8), inset 0 -1px 1px 3px rgb(250, 227, 133);
+  background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  border: 1px solid #a55d07;
+  color: rgb(120, 50, 5);
+  text-shadow: 0 2px 2px rgb(250, 227, 133);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.golden-button:focus,
+.golden-button:hover {
+  background-size: 150% 150%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgb(250, 227, 133);
+  border: 1px solid rgba(165, 93, 7, 0.6);
+  color: rgba(120, 50, 5, 0.8);
+}
+
+.golden-button:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgb(250, 227, 133);
+}
+
+.titleBG {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 200vh;
+  overflow: scroll;
+  --color: #a748f5;
+  background: linear-gradient(95deg, var(--color) 25%, transparent 25%) -50px 0, linear-gradient(-15deg, var(--color) 25%, transparent 25%) -50px 0, linear-gradient(25deg, transparent 75%, var(--color) 75%) -50px 0, linear-gradient(-45deg, transparent 75%, var(--color) 75%) -50px 0, linear-gradient(-15deg, transparent 75%, var(--color) 75%) -50px 0;
+  background-color: #b669fd;
+  background-size: 80px 80px;
+}
+
+.topBar {
+  width: 100vw;
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 20px;
+}
+.topBar a h2 {
+  cursor: pointer !important;
+  z-index: 10;
+}
+.topBar h2 {
+  font-family: "montserrat";
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.golden-sheen {
+  margin-top: 0px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px rgb(139, 66, 8), inset 0 -1px 1px 3px rgb(250, 227, 133);
+  background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  border: 1px solid #a55d07;
+  color: rgb(120, 50, 5);
+  text-shadow: 0 2px 2px rgb(250, 227, 133);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-size: 100% 100%;
+  background-position: left;
+  animation: goldShimmer 15s ease infinite alternate;
+}
+
+@keyframes throbbing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95) skewY(-5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.throbbing-text {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ff5733; /* Choose your desired text color */
+  animation: throbbing 2.5s 0.5s infinite;
+}
+
+.floating-svg {
+  position: absolute;
+  animation: floatDown linear infinite;
+  animation-duration: 5s;
+  animation-delay: 0s;
+}
+
+@keyframes floatDown {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+@keyframes bgDiamonds {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: 300%;
+  }
+}
+@keyframes goldShimmer {
+  0% {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px rgb(139, 66, 8), inset 0 -1px 1px 3px rgb(250, 227, 133);
+    background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+    border: 1px solid #a55d07;
+    color: rgb(120, 50, 5);
+    text-shadow: 0 2px 2px rgb(250, 227, 133);
+    background-size: 100% 100%;
+    background-position: left;
+  }
+  100% {
+    background-size: 150% 150%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgb(250, 227, 133);
+    border: 1px solid rgba(165, 93, 7, 0.6);
+    color: rgba(120, 50, 5, 0.8);
+    background-position: right;
+  }
+}
+.HUD {
+  width: 500px;
+  position: fixed;
+  border-radius: 25px;
+  bottom: 40px;
+  left: 40px;
+  height: 100px;
+  background-color: red;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 99;
+}
+.HUD .playerBar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.HUD .playerBar p {
+  font-size: 2rem;
+  font-family: montserrat;
+  color: white;
+}
+.HUD .playerBar .healthBar {
+  display: flex;
+}
+.HUD .playerBar .healthBar svg {
+  fill: white;
+  height: 30px;
+}
+.HUD .playerBar .itemBar {
+  display: flex;
+}
+.HUD .playerBar .itemBar svg {
+  fill: black;
+}
+
+.reloadText {
+  font-size: 5rem;
+  color: black;
+  font-family: oswald;
+  position: fixed;
+  top: 30%;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  z-index: 40;
+}
+
+#home {
+  background-color: brown !important;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.391);
+}
+
+#garden {
+  background-color: darkgreen !important;
+}
+
+/* styles.css */
+.item {
+  width: 30px;
+  height: 30px;
+  background-color: red; /* Change this to your desired color or background image */
+  border-radius: 50%;
+}
+
+.healthPotion {
+  /* Add specific styles for health potions if needed */
+}/*# sourceMappingURL=index.css.map */

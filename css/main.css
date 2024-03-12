@@ -1,0 +1,19 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+#game-container {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+#scene-interactive {
+    cursor: pointer;
+}
+
+button{
+    color:black;
+    width:100px;
+    height:45px;
+}
