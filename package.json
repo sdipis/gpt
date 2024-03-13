@@ -1,0 +1,16 @@
+{
+  "name": "oops",
+  "version": "1.0.0",
+  "description": "Web game built using OOP",
+  "main": "js/gta.js",
+  "scripts": {
+    "dev": "parcel src/interior.html",
+    "build": "parcel build dist/interior.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

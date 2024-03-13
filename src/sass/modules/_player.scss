@@ -1,0 +1,93 @@
+#player{
+    //collision box
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 50% !important;
+    z-index: 2;
+    background: none !important;
+    transform-origin: center center;
+    overflow: visible;
+    // background-color: red !important;
+    padding:0px;
+    margin:0px;
+    overflow: visible !important;
+    transition:.2s ease;
+
+    svg{
+        padding:0px;
+            opacity: .1;
+        position: absolute;
+        // background-color: blue !important;
+        height: 60px !important;
+        width: 60px !important;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:auto;
+        margin-bottom: auto;
+        transform-origin: center center;
+        object-position: top center;
+        object-fit: contain !important;
+        overflow: visible !important;
+        transform:translatex(-12.5px) !important;
+
+    }
+    #mainPlayerWalkLeftF1,#mainPlayerWalkLeftF2,#mainPlayerWalkLeftF3,
+    #mainPlayerWalkRightF1,#mainPlayerWalkRightF2,#mainPlayerWalkRightF3
+    {
+        transform:translatey(-11.5px) !important;
+
+    }
+    
+}
+
+.playerHead {
+    fill: #29abe2;
+    stroke-miterlimit: 10;
+    stroke-width: 10px;
+  }
+
+  .playerHead, .arms {
+    stroke: #000;        transform-origin:center center;
+
+  }
+
+  .arms {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: bevel;
+    stroke-width: 20px;
+  }
+
+  .feet {
+    stroke-width: 0px;
+            transform-origin:center center;
+
+  }
+
+  // player getting hit by car animation
+
+  // .jumping{
+  //   width: 45px !important;
+  //   height: 45px !important;
+  //   svg{
+  //     height: 75px !important;
+  //     width: 75px !important;
+  //   }
+  //   }
+
+  #changeColorButton{
+    padding:20px !important;
+    background-color: white !important;
+    fill: black !important;
+    border-radius: 50px;
+    overflow: visible;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.369);
+  }
