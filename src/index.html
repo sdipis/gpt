@@ -27,7 +27,7 @@
             <li>
                 <div class="gameStartButtons">
                 <button role="button" class="golden-button">
-                    <a href="interior.html" class="golden-text">START GAME</a>
+                    <a href="rooms/interior.html" class="golden-text">START GAME</a>
                   </button>
                   <button id="musicPlayButton" role="button" class="golden-button" @click="">
                   Play Music
@@ -38,7 +38,7 @@
 
     <div class="topBar golden-sheen">
         <h2>Made By&nbsp;</h2>
-        <a href="https://dipidomain.com/"><h2>S. Dipi + L. Akbari</h2></a>
+       <h2>S. Dipi + L. Akbari</h2>
         </div>
 
 
@@ -138,50 +138,51 @@
 </div>
 </section>
 
-<section id="infoSection">
-    
-<h2>Read about the development of this game here</h2>
-</section>
+<div class="hiddenLinks">
+  <!-- workaround for parcel not including hrefs found in JS files -->
+  <a href="rooms/casino.html"></a>
+  <a href="rooms/bar.html"></a>
+  <a href="rooms/games/slots.html"></a>
+  <a href="rooms/games/blackjack.html"></a>
+
+  <a href="rooms/interior_2.html"></a>
+  <a href="rooms/interior_3.html"></a>
+
+
+
+
+
+</div>
 
 
 
 <!-- <div class="cityScape">
 </div> -->
+<audio id="myAudio" src="./resources/music/game_music.mp3"></audio>
 </body>
 </html>
 
 <script>
-      var musicButton = document.getElementById('musicPlayButton');
-            var audio = new Audio("resources/music/title_music.mp3");
+      var musicButton = document.querySelector('#musicPlayButton');
+            var audio = document.querySelector('#myAudio');
             var throbbingElement = document.querySelector('#titleScreenLogo');
 
-            // Add a click event listener to the music button
-            musicButton.addEventListener('click', function () {
-                if (audio.paused) {
-                    // If audio is paused, reset playback
-                    audio.currentTime = 0;
-                } else {
-                    // If audio is playing, pause it
-                    audio.pause();
-                }
+        // Add a click event listener to the music button
+musicButton.addEventListener('click', function () {
+    if (audio.paused || audio.currentTime >= 5) {
+        // If audio is paused or already at or beyond the 5-second mark, reset playback to 5 seconds
+        audio.currentTime = 5;
+    } else {
+        // If audio is playing before the 5-second mark, pause it
+        audio.pause();
+    }
 
-                audio.play();
+    // Start playing the audio from the 5-second mark
+    audio.play();
 
-                // Apply the throbbing animation to the element
-                throbbingElement.classList.add('throbbing-text');
-            });
-
-            // Listen for the 'play' event of the audio element
-            audio.addEventListener('play', function () {
-                // Apply the throbbing animation to the element
-                throbbingElement.classList.add('throbbing-element');
-            });
-
-            // Listen for the 'pause' event of the audio element
-            audio.addEventListener('pause', function () {
-                // Remove the throbbing animation from the element
-                throbbingElement.classList.remove('throbbing-element');
-            });
+    // Apply the throbbing animation to the element
+    throbbingElement.classList.add('throbbing-text');
+});
 
             
 

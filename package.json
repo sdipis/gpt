@@ -4,9 +4,7 @@
   "description": "Web game built using OOP",
   "main": "js/gta.js",
   "scripts": {
-    "dev": "parcel src",
-    "build": "parcel build dist"
-  },
+    "dev": "parcel src/index.html"  },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -141,7 +141,7 @@ var Car = exports.default = /*#__PURE__*/function () {
       this.element.style.position = 'absolute';
       this.element.style.width = '150px';
       this.element.style.height = '70px';
-      this.speed = 1.5;
+      this.speed = 3;
       this.angle = 0; // Initial angle in radians
       this.isDriftingLeft = false; // Flag to indicate if the car is drifting left
       this.isDriftingRight = false; // Flag to indicate if the car is drifting right
@@ -762,11 +762,11 @@ var Player = exports.default = /*#__PURE__*/function () {
       switch (buildingId) {
         case 'building4':
           console.log('Entering the bar');
-          this.navigateToRoom('bar.html');
+          this.navigateToRoom('../rooms/bar.html');
           break;
         case 'building6':
           console.log('Entering the casino');
-          this.navigateToRoom('rooms/casino.html');
+          this.navigateToRoom('../rooms/casino.html');
           break;
         case 'building2':
           console.log('Teleporting to Room 2');
@@ -783,19 +783,19 @@ var Player = exports.default = /*#__PURE__*/function () {
           break;
         case 'blackjack-table':
           console.log('Starting Blackjack');
-          this.navigateToRoom('../rooms/games/blackjack.html');
+          this.navigateToRoom('games/blackjack.html');
           break;
         case 'poker-table':
-          console.log('Starting Blackjack');
-          this.navigateToRoom('../rooms/games/roulette.html');
+          console.log('Starting Roulette');
+          this.navigateToRoom('games/roulette.html');
           break;
         case 'roulette-table':
-          console.log('Starting Blackjack');
-          this.navigateToRoom('../rooms/games/poker.html');
+          console.log('Starting Poker');
+          this.navigateToRoom('games/poker.html');
           break;
         case 'slot-machine':
           console.log('Starting Slots');
-          this.navigateToRoom('../rooms/games/slots.html');
+          this.navigateToRoom('games/slots.html');
           break;
         case 'toll_1b':
           console.log('T1B -> T2A');
@@ -1528,7 +1528,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61542" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64017" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
