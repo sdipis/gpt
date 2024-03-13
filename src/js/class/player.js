@@ -337,11 +337,11 @@ requestAnimationFrame(bulletMove);
         switch (buildingId) {
             case 'building4':
                 console.log('Entering the bar');
-                this.navigateToRoom('bar.html');
+                this.navigateToRoom('../rooms/bar.html');
                 break;
             case 'building6':
                 console.log('Entering the casino');
-                this.navigateToRoom('rooms/casino.html');
+                this.navigateToRoom('../rooms/casino.html');
                 break;
             case 'building2':
                 console.log('Teleporting to Room 2');
@@ -358,19 +358,19 @@ requestAnimationFrame(bulletMove);
                 break;
             case 'blackjack-table':
                 console.log('Starting Blackjack');
-                this.navigateToRoom('../rooms/games/blackjack.html');
+                this.navigateToRoom('games/blackjack.html');
                 break;
             case 'poker-table':
-                console.log('Starting Blackjack');
-                this.navigateToRoom('../rooms/games/roulette.html');
+                console.log('Starting Roulette');
+                this.navigateToRoom('games/roulette.html');
                 break;
             case 'roulette-table':
-                console.log('Starting Blackjack');
-                this.navigateToRoom('../rooms/games/poker.html');
+                console.log('Starting Poker');
+                this.navigateToRoom('games/poker.html');
                 break;
             case 'slot-machine':
                 console.log('Starting Slots');
-                this.navigateToRoom('../rooms/games/slots.html');
+                this.navigateToRoom('games/slots.html');
                 break;
             case 'toll_1b':
                 console.log('T1B -> T2A');
