@@ -1,0 +1,63 @@
+.HUD{
+    width:auto;
+    position: fixed;
+    border-radius: 25px;
+
+    bottom:40px;
+    left:40px;
+    height:auto;
+    background-color: red;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left:20px;
+    padding-right:20px;
+    z-index: 99;
+    align-items: center !important;
+    justify-content: center !important;
+    .playerBar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        
+        p{
+            font-size: 2rem;
+            font-family: montserrat;
+            color:white;
+        }
+        .healthBar{
+            display: flex;
+            margin-left:10px;
+            margin-right:10px;
+            svg{
+                fill:black;
+                height:30px;
+                
+            }
+        }
+        .itemBar{
+            display: flex;
+            svg{
+                fill:black;
+            }
+        }
+    }
+
+}
+
+.reloadText{
+    font-size: 5rem;
+    color:black;
+    font-family: montserrat;
+    position: fixed;
+    top:30%;
+    text-align: center;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    z-index: 40;
+    font-weight: 600;
+}

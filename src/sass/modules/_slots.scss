@@ -1,0 +1,238 @@
+#slot-machine{
+    background-color: yellow;
+}
+
+
+.backToFloor{
+    height:120px;
+    width:120px;
+    position: fixed;
+    top:40px;
+    left:40px;
+}
+    .slotWrapper{
+        height:100vh;
+        width:100vw;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+.slot-machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:auto;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    padding-top:40px;
+    padding-bottom: 40px;
+    flex:0 0 50%;
+    height:100%;
+    transform: translateY(-60px);
+
+}
+
+.cheese-logo{
+    width:100%;
+    transform: translateY(60px);
+
+    display: flex;
+    justify-content: center;
+    height:fit-content;
+    padding:0px;
+    margin:0px;
+    overflow: auto;
+svg{
+    width:100px;
+    transform:rotate(90deg);
+    padding:0px;
+    margin:0px;
+
+}
+}
+
+.reels{
+    display: flex;
+    flex-flow: row;
+    
+}
+
+
+.reel {
+    border-radius: 15px;
+    margin:10px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    font-size: 5rem;
+    overflow: hidden; /* Hide overflowing symbols */
+    position: relative; /* Position for absolute positioning of symbols */
+    background-color: white;
+    padding:20px;
+    div{
+        background-color: white;
+        padding:20px;
+
+    }
+}
+
+.reel div {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the symbol */
+}
+
+#spinButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+}
+
+
+
+
+
+
+#roulette_wheel{
+
+.cls-1 {
+    opacity: .25;
+  }
+
+  .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-33, .cls-34 {
+    stroke-width: 0px;
+  }
+
+  .cls-3 {
+    fill: #f9e769;
+  }
+
+  .cls-4 {
+    fill: #f6ff35;
+  }
+
+  .cls-5 {
+    fill: #4c4642;
+  }
+
+  .cls-6 {
+    fill: #54370a;
+  }
+
+  .cls-7 {
+    fill: #541018;
+  }
+
+  .cls-8 {
+    fill: #398764;
+  }
+
+  .cls-9 {
+    fill: #3a3a3a;
+  }
+
+  .cls-10 {
+    fill: #352200;
+  }
+
+  .cls-11 {
+    fill: #357157;
+  }
+
+  .cls-12 {
+    fill: #e03636;
+  }
+
+  .cls-13 {
+    fill: #ce2e2e;
+  }
+
+  .cls-14 {
+    fill: #d89450;
+  }
+
+  .cls-15 {
+    fill: #c6854a;
+  }
+
+  .cls-16 {
+    fill: #c6b8af;
+  }
+
+  .cls-17 {
+    fill: #e09f65;
+  }
+
+  .cls-18 {
+    fill: #bfafa5;
+  }
+
+  .cls-19 {
+    fill: #d8d8d8;
+  }
+
+  .cls-20 {
+    fill: #a56c42;
+  }
+
+  .cls-21 {
+    fill: #cec0b7;
+  }
+
+  .cls-22 {
+    fill: #c1bdbc;
+  }
+
+  .cls-23 {
+    fill: #333;
+  }
+
+  .cls-24 {
+    fill: #ba7c49;
+  }
+
+  .cls-25 {
+    fill: #f2b42c;
+  }
+
+  .cls-26 {
+    fill: #ffe600;
+  }
+
+  .cls-27 {
+    fill: #fff;
+  }
+
+  .cls-28 {
+    fill: #e6c03c;
+  }
+
+  .cls-29 {
+    fill: #e2e2e2;
+  }
+
+  .cls-30 {
+    fill: #fce875;
+  }
+
+  .cls-31 {
+    fill: #ffc232;
+  }
+
+  .cls-32 {
+    fill: #f15a24;
+  }
+
+  .cls-33 {
+    fill: #037506;
+  }
+
+  .cls-34 {
+    fill: #685b51;
+  }}
