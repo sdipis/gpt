@@ -1,5 +1,8 @@
 # Glitch Pause Traverse
 
+<img width="1439" alt="title" src="https://github.com/sdipis/L_Akbari_S_Dipierdomenico_HW2/assets/72488439/80dc0aac-bda9-4150-b4dc-d868b39ab704">
+<img width="1439" alt="main world" src="https://github.com/sdipis/L_Akbari_S_Dipierdomenico_HW2/assets/72488439/6b767395-d845-4298-bd09-e2ddac6bd23e">
+
 Small web game built using OOP by L. Akbari and S. Dipi
 
 ## Credits
@@ -10,12 +13,9 @@ Royalty free g funk from youtube
 
 ## Bugs
 
-Vehicle collisions are broken. 
-1. Player -> npc 
-2. npccar -> player
-3. bullets -> npc
+Multiple sets of collisions are broken. From adding/editing stuff wrecklessly
 
-These collisions functions are scattered through the player class, car class, and main js file 
+These collisions functions are scattered through the player class, car class, and main js file (gta.js) 
 
 eatEnemy()
 Player can eatEnemies, but the collisions are broken right now.
@@ -56,8 +56,25 @@ The buildings are used as actual buildings shown in gameworld. But they can be u
 1. Walk around the casino
 2. Walk into one of the tables to trigger the game, play slots and blackjack!
 
+   <img width="1439" alt="casino" src="https://github.com/sdipis/L_Akbari_S_Dipierdomenico_HW2/assets/72488439/000ce8bb-891f-4b03-a088-02c9adc5fc2b">
+
+#### Slots
+- play slots by walking into the slot machine (yellow box) in casino
+<img width="1439" alt="slots" src="https://github.com/sdipis/L_Akbari_S_Dipierdomenico_HW2/assets/72488439/6e1fc383-a7a7-48c0-a507-af89e428b604">
+
+#### Blackjack
+- Play blackjack by walking into the blackjack table in casino
+
+#### Roulette
+- under construction
+
+#### Poker
+- under construction
+
 ### Bar
 1. Nothing in the bar yet except a pool table and some chairs
+
+<img width="1439" alt="bar" src="https://github.com/sdipis/L_Akbari_S_Dipierdomenico_HW2/assets/72488439/c6a52604-9ee1-4eb2-babc-8739960315a4">
 
 ### Music
 Royalty free G-Funk: https://www.youtube.com/watch?v=D4ZsLQqR64U
