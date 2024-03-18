@@ -134,8 +134,8 @@ body {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -148,7 +148,6 @@ body {
   background-size: 60px;
   background-position: center center;
   object-fit: contain;
-  background-color: red;
   position: absolute;
   left: 0px;
   z-index: -5;
@@ -297,7 +296,7 @@ body {
   width: 200px;
   background-image: url("../resources/road.jpg");
   background-repeat: repeat;
-  background-size: 100px;
+  background-size: 60px;
   background-position: center center;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.356);
   z-index: -1;
@@ -478,9 +477,9 @@ body {
 }
 
 .bullet {
-  position: absolute;
-  width: 5px;
-  height: 5px;
+  position: block;
+  width: 15px !important;
+  height: 15px !important;
   background-color: white;
   border-radius: 50%;
 }
@@ -490,7 +489,7 @@ body {
   background-color: darkgreen;
   background-image: url("../resources/grass.jpg");
   background-repeat: repeat;
-  background-size: 20px;
+  background-size: 60px;
   background-position: center center;
 }
 
@@ -619,7 +618,7 @@ a {
   margin-top: 20px;
 }
 .howToPlay ul li h3 span {
-  background-color: #fef1a2;
+  background-color: white;
   height: 40px;
   min-width: 40px !important;
   padding: 10px;
@@ -631,14 +630,14 @@ a {
 }
 
 #titleScreenLogo {
-  position: absolute;
+  position: fixed;
   left: 100px;
   bottom: 0;
   top: 0;
   margin-bottom: auto;
   margin-top: auto;
   width: fit-content;
-  height: 100vh;
+  height: fit-content;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -698,8 +697,10 @@ a {
   top: 0px;
   left: 0px;
   width: 100vw;
-  height: 200vh;
-  overflow: scroll;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   --color: #a748f5;
   background: linear-gradient(95deg, var(--color) 25%, transparent 25%) -50px 0, linear-gradient(-15deg, var(--color) 25%, transparent 25%) -50px 0, linear-gradient(25deg, transparent 75%, var(--color) 75%) -50px 0, linear-gradient(-45deg, transparent 75%, var(--color) 75%) -50px 0, linear-gradient(-15deg, transparent 75%, var(--color) 75%) -50px 0;
   background-color: #b669fd;
@@ -956,6 +957,7 @@ a {
 #roulette-table {
   background-color: transparent !important;
   box-shadow: none !important;
+  border-radius: 50%;
   transform: rotate(15deg);
 }
 #roulette-table:before {
@@ -985,6 +987,7 @@ a {
 
 #poker-table {
   transform: rotate(-15deg);
+  border-radius: 50%;
   background: none !important;
 }
 #poker-table .overlay {
@@ -1011,6 +1014,7 @@ a {
 
 #blackjack-table {
   background: none !important;
+  border-radius: 100% 100% 0px 0px;
   transform: rotate(-87deg);
 }
 #blackjack-table .overlay {
@@ -1241,4 +1245,12 @@ a {
 }
 #roulette_wheel .cls-34 {
   fill: #685b51;
+}
+
+#player-inventory .inventory-item {
+  width: 40px;
+  height: 40px;
+}
+#player-inventory .inventory-item p {
+  display: none;
 }/*# sourceMappingURL=index.css.map */

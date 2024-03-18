@@ -1,0 +1,138 @@
+//main interior
+
+#casino{
+    // background:rgb(62, 0, 0);
+    border:5px solid rgb(0, 0, 0);
+    background-image: url('../resources/casino/carpet.jpg');
+    background-repeat: repeat;
+    background-size: 60px;
+    background-position: center center;
+    box-shadow: 0px 0px 150px black inset,0px 0px 200px black inset,0px 0px 250px black inset;
+
+}
+
+
+
+#casino-chairs{
+    background-color: transparent !important;
+    box-shadow: none !important;
+
+    transform:rotate(15deg);
+      &:before{
+        content:url('../resources/casino/tables_and_chairs.svg');
+        transform:none;
+        top:0px;
+        left:0px;
+        height:100%;
+        width:100%;
+        background: none !important;
+}
+
+}
+
+#roulette-table{
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 50%;
+
+    transform:rotate(15deg);
+      &:before{
+        content:url('../resources/casino/roulette.svg');
+        transform:none;
+        top:0px;
+        left:0px;
+        height:100%;
+        width:100%;
+        background: none !important;
+}
+
+}
+
+#casino
+{ #player{
+    width:40px;
+    height:40px;
+}
+    // svg{
+    //     transform: scale(2) !important;
+    // }
+}
+#casino-door{
+    content:url('../resources/svg/exit.svg');
+    transform:none;
+    top:0px;
+    left:0px;
+    height:100px !important;
+    width:100px !important;  
+    transform:rotate(-90deg);
+}
+#poker-table{
+    transform:rotate(-15deg);
+    border-radius: 50%;
+    background: none !important;
+    .overlay{display: none;}
+    &:before{
+        content:url('../resources/casino/pokerTable.svg');
+        transform:none;
+        top:0px;
+        left:0px;
+        background: none !important;
+
+
+    } 
+}
+
+#pool-table{
+    transform:rotate(17.5deg);
+    &:before{
+        content:url('../resources/casino/pool.svg');
+        transform:none;
+        top:0px;
+        left:0px;
+        background: none !important;
+
+
+    } 
+}
+#blackjack-table{
+    background: none !important;
+    border-radius: 100% 100% 0px 0px;
+    .overlay{display: none;}
+    transform:rotate(-87deg);
+
+    &:before{
+        content:url('../resources/casino/blackjackTable.svg');
+        transform:none;
+        top:0px;
+        left:0px;
+        background: none !important;
+
+
+    } 
+}
+
+#casino-bar{
+    background-color: darkgreen;
+    background-image: url('../resources/textures/dark_wood.jpg');
+    background-repeat: repeat;
+    background-size: 80px;
+    background-position: center center;
+    border-radius: 0px 0px 0px 15px;
+}
+
+
+#casino-chairs,
+#casino-bar,
+#casino-bar-right,
+#roulette-table,
+#dice-table,
+#blackjack-table{
+    
+    .overlay{
+        display: none !important;
+    }
+    &:before{
+        background: none !important;
+    }
+}
+
