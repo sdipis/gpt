@@ -7,8 +7,8 @@ export default class Car {
             this.element.classList.add('car');
             this.element.id = 'car';
             this.element.style.position = 'absolute';
-            this.element.style.width = '150px';
-            this.element.style.height = '70px';
+            this.element.style.width = '170px';
+            this.element.style.height = '80px';
             this.speed = 3;
             this.angle = 0;  // Initial angle in radians
             this.isDriftingLeft = false; // Flag to indicate if the car is drifting left

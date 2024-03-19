@@ -1,4 +1,4 @@
-import Player from '../class/player.js';
+// import Player from '../class/player.js';
 
 export default class Item {
     constructor(player, name, description, imgSrc, initialX, initialY) {
@@ -11,6 +11,7 @@ export default class Item {
         this.element = null;
         this.isInInventory = false;
         this.createHTML();
+
     }
 
     createHTML() {
@@ -18,7 +19,6 @@ export default class Item {
         this.element.classList.add('item');
         this.element.innerHTML = `
             <img src="${this.imgSrc}" alt="${this.name}">
-            <p>${this.name}</p>
         `;
         // Set initial position based on initialX and initialY
         this.element.style.position = 'absolute';
@@ -29,6 +29,9 @@ export default class Item {
             this.pickUp();
         });
     }
+// removeFromInventory(itemToRemove) {
+//     this.inventory = this.inventory.filter(item => item !== itemToRemove);
+// }
 
 pickUp() {
     //pick up the item into inventory
@@ -43,8 +46,7 @@ pickUp() {
         // Update the inventory display
         this.player.updateInventoryDisplay();
 
-        // Apply the effects of the item to the player
-        this.player.applyItemEffects(this);
     }
 }
+
 }

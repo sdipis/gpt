@@ -74,7 +74,7 @@ function createBuildings(page) {
                     // new Building('gas_dumpster', 160, 300, 50, 80), //
 
                 new Building('building4', 400, 180, 244*1.5, 206*1.5), //bar
-                    new Building('bar_parking', 740, 180, 120, 200), //bar
+                    new Building('bar_parking', 740, 180, 150, 210), //bar
                     new Building('bar_carpet_outside', 500, 160, 120, 20), //bar
 
                 new Building('building6', 1000, 500, 600, 1000) //casino

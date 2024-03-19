@@ -23,6 +23,7 @@ export default class Player {
         this.maxBullets = 50;
         this.isReloading = false;
         this.inventory=[];
+        this.hasWeapon=false;
         this.update();
         this.updateBulletsDisplay();
 
@@ -116,6 +117,8 @@ updateInventoryDisplay() {
             this.removeFromInventory(item);
             // Update the inventory display
             this.updateInventoryDisplay();
+            // Apply the effects of the item to the player
+            this.applyItemEffects(item);
         });
 
         inventoryContainer.appendChild(itemElement);
@@ -132,11 +135,27 @@ applyItemEffects(item) {
     console.log(item)
 
     switch (item.name) {
-        case 'Apple':
-            document.querySelector('.playerHead').style.fill = 'red !important';
+        case 'Red Shoes':
+            document.querySelector('#player').style.fill = 'red';
+            this.element.speed += 10;
+            console.log('Player Speed: '+this.speed);
             break;
+        case 'Blue Shoes':
+            document.querySelector('#player').style.stroke = '#00affa';
+            console.log(item,' consumed');
+            break;
+        case 'Beer Bottle':
+            document.querySelector('body').style.filter = 'blur(2px)';
+            setTimeout(document.querySelector('body').style.filter = 'blur(2px)', 5);
+            console.log(item,' consumed');
+            break;
+        case 'Baseball Bat':
+            console.log('using bat');
+            this.hasWeapon=true;
+            console.log('Player has a ',item)
+        break;
         default:
-            // Handle unknown items or no effect items
+            console.log(item, 'unknown effects');
             break;
     }
 }
@@ -463,14 +482,6 @@ requestAnimationFrame(bulletMove);
         window.location.href = roomPath;
     }
     
-
-
-          //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\\
-         //                       \\
-        //   BUILDING COLLISION    \\
-       //   + set teleport in here  \\
-      //                             \\
-     //_______________________________\\
 
     checkCollision() {
 

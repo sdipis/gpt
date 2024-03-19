@@ -12,7 +12,7 @@ import './animations/player_animations.js';
 import { keysPressed } from './animations/player_animations.js';
 import './animations/change_player_color.js';
 import Item from './class/item.js';
-
+import Pers_Item from './class/pers_item.js';
 
   //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
  //          Initialize            //
@@ -30,17 +30,20 @@ if (currentPage == 'bar_interior' && currentPage == 'casino_interior') {
 
 const enemies = [];
 
-// const items = []; // Add this line to initialize the items array
-// const healthPotion = new Item(0, 0, 'bag of crack');
-// items.push(healthPotion);
-
 //init items
 
 //pass player instance to item and declare the props
-const myItem = new Item(player, "Apple", "An overpriced electronic", "../resources/items/apple.svg", 100, 150);
+const myItem = new Item(player, "Red Shoes", "An overpriced electronic", "../resources/items/redShoes.svg", 60, 220);
 document.getElementById('interior-container').appendChild(myItem.element);
 
+const blueItem = new Pers_Item(player, "Blue Shoes", "An overpriced electronic", "../resources/items/blueShoes.svg", 1100, 250);
+document.getElementById('interior-container').appendChild(blueItem.element);
 
+const beerBottle = new Item(player, "Beer Bottle", "Get lifted", "../resources/items/beerBottle.svg", 1200, 100);
+document.getElementById('interior-container').appendChild(beerBottle.element);
+
+const baseballBat = new Item(player, "Baseball Bat", "Get lifted", "../resources/items/baseballBat.svg", 1300, 200);
+document.getElementById('interior-container').appendChild(baseballBat.element);
 
   //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
  //           Spawn NPC            //

@@ -96,24 +96,20 @@ const svgFramesUp = [
   
     switch (event.key) {
       case 'ArrowUp':
-        console.log('walking up');
+        // console.log('walking up');
         startAnimation(svgFramesUp);
         break;
       case 'ArrowDown':
-        console.log('walking down');
+        // console.log('walking down');
         startAnimation(svgFramesDown);
         break;
       case 'ArrowLeft':
-        console.log('walking left');
+        // console.log('walking left');
         startAnimation(svgFramesLeft);
         break;
       case 'ArrowRight':
-        console.log('walking right');
+        // console.log('walking right');
         startAnimation(svgFramesRight);
-        break;
-      case 'Space': // Assuming 'Space' key triggers shooting
-        console.log('shooting');
-        startShootingAnimation();
         break;
     }
   });
