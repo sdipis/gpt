@@ -73,12 +73,14 @@ handleKeyUp(event) {
     }
 }
 
+
+
 move() {
     // Convert angle to radians
     const angleInRadians = this.angle * (Math.PI / 180);
 
     // Calculate lateral movement based on angle for drifting effect
-    const lateralMovement = this.isDrifting ? 0.05 * (this.isTurningLeft ? -1 : 1) : 0;
+    const lateralMovement = this.isDrifting ? 0.2 * (this.isTurningLeft ? -1 : 1) : 0;
 
     // Gradually adjust the angle for drifting
     const driftFactor = 25; // Adjust as needed

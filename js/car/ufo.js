@@ -3,14 +3,15 @@ const currentPage = document.body.dataset.page;
 
 export default class Ufo extends Car {
     constructor() {
+        super();
         if (currentPage !== 'bar_interior' && currentPage !== 'casino_interior') {
             this.element = document.createElement('div');
-            this.element.classList.add('car');
-            this.element.id = 'car';
+            this.element.classList.add('ufo');
+            this.element.id = 'ufo';
             this.element.style.position = 'absolute';
             this.element.style.width = '150px';
-            this.element.style.height = '70px';
-            this.speed = 2;
+            this.element.style.height = '150px';
+            this.speed = 5;
             this.angle = 0;  // Initial angle in radians
             this.isDrifting = false; // Flag to indicate if the car is drifting
             document.body.appendChild(this.element);

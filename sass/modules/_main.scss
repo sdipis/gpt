@@ -1,3 +1,16 @@
+*{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently*/
+}
+
+.hidden{
+    display: none !important;
+}
+
 body {
     margin: 0;
     overflow: hidden;
@@ -12,14 +25,16 @@ body {
 }
 
 
-.sidewalk{
-    height:60px !important;
-    top:120px !important;
-    
+#sidewalk{
+    height:50px !important;
+    top:160px !important;
+    border-top:2px solid #606060;
+    border-bottom:2px solid #606060;
+
     width:100vw;    
     background-image: url('../resources/concrete.jpg');
     background-repeat: repeat-x;
-    background-size: 60px;
+    background-size: 50px;
     background-position: center center;
     object-fit: contain;
     // background-color: red;
@@ -84,7 +99,6 @@ body {
 #toll_1b{
     height:180px;
     width:5px;
-    background-color: red;
     position: absolute;
     right:0px;
     top:0px;
@@ -143,33 +157,18 @@ body {
 
 
 #interior-container {
-    // width: 500px;
-    height: 20px !important;
-    // margin: 20px auto;
+    background-color: transparent !important;
+}
+
+#highway{
     background-image: url('../resources/road.jpg');
     background-repeat: repeat;
-    background-size: 100px;
+    background-size: 160px;
     background-position: center center;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.75) inset;
-    z-index: -2;
-    &:before{
-        content: '';
-        height:2px;
-        width:100vw;
-        background-color: yellow;
-        position: absolute;
-        top:65px;
-        left:0px;
-    }
-    &:after {
-        content: '';
-        height:2px;
-        width:100vw;
-        background-color: yellow;
-        position: absolute;
-        top:58px;
-        left:0px;
-    }
+    width:100%;
+    height:160px;
+    z-index: -1;
 }
 
 .interior-container-two {
@@ -214,10 +213,19 @@ body {
 
 #car{
     // background-color: red !important;
-    
+    z-index: 3;
 
     &:before{
         content:url('../resources/svg/truck.svg');
+            
+    
+    }
+}
+
+.ufo{
+
+    &:before{
+        content:url('../resources/vehicles/ufo.svg');
             
     
     }
@@ -280,6 +288,9 @@ body {
 
 //bar
 #building4{
+    background-color: red;
+}
+#bar_model{
 
     position:absolute;
     top:0px;
@@ -488,19 +499,19 @@ body {
     background-color: darkgreen;
     background-image: url('../resources/grass.jpg');
     background-repeat: repeat;
-    background-size: 60px;
+    background-size: 100px;
     background-position: center center;
 }
 
 
 .enemy{
-    position: absolute;
+    position: static;
     width: 30px;
     height: 30px;
     border-radius: 50% !important;
     border:2px solid black;
     box-shadow: 0px 0px 3px black;
-    z-index: 2;
+    z-index: -3;
     
 }
 .enemy{

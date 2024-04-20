@@ -7,3 +7,36 @@
         }
     }
 }
+
+.inventoryScreen{
+    min-height:80px;
+    min-width: 80px;
+    max-width: 400px;
+    z-index: 99 !important;
+
+    // align-self: center;
+    // border-radius: 25px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    h2{
+        font-size: 2rem;
+        margin-top:10px;
+    }
+
+    div{
+        flex:1;
+        display: flex;
+        align-items: center;
+        img{
+            height:30px;
+            padding:10px;
+
+            object-position: center center;
+            object-fit: contain;
+        }
+    }
+
+
+}

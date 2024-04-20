@@ -68,16 +68,21 @@ function createBuildings(page) {
                     ];
         case 'interior':
             return [
+                new Building('highway', 0, 0), //road
+                new Building('sidewalk', 0, 120), //road
+
                 new Building('toll_1b'), //toll 1_b
 
-                new Building('building3', 180, 180, 77.3*2.5, 132.14*2.5), //gas
+                // new Building('building3', 180, 180, 77.3*2.5, 132.14*2.5), //gas
                     // new Building('gas_dumpster', 160, 300, 50, 80), //
 
-                new Building('building4', 400, 180, 244*1.5, 206*1.5), //bar
-                    new Building('bar_parking', 740, 180, 150, 210), //bar
-                    new Building('bar_carpet_outside', 500, 160, 120, 20), //bar
+                new Building('building4', 200, 275, 460, 20), //bar
+                new Building('bar_model', 200, 200, 460, 310, true), //bar
 
-                new Building('building6', 1000, 500, 600, 1000) //casino
+                    // new Building('bar_parking', 600, 160, 300, 350), //bar
+                    new Building('bar_carpet_outside', 200, 160, 450, 100), //dumpster
+
+                new Building('building6', 1200, 700, 300, 1000, true) //casino
                 // new Building('building5', 1300, 180, 300, 200) //pot shop
 
             ];

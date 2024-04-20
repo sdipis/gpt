@@ -27,24 +27,32 @@ if (currentPage == 'bar_interior' && currentPage == 'casino_interior') {
     sundayDriver = null; // Initialize to null
 
 }
-
 const enemies = [];
 
 //init items
 
+if (currentPage == 'interior') {
+
 //pass player instance to item and declare the props
-const myItem = new Item(player, "Red Shoes", "An overpriced electronic", "../resources/items/redShoes.svg", 60, 220);
+const myItem = new Item(player, "Red Shoes", "An overpriced electronic", "../resources/items/redShoes.svg", 1100, 300);
 document.getElementById('interior-container').appendChild(myItem.element);
 
 const blueItem = new Pers_Item(player, "Blue Shoes", "An overpriced electronic", "../resources/items/blueShoes.svg", 1100, 250);
 document.getElementById('interior-container').appendChild(blueItem.element);
 
-const beerBottle = new Item(player, "Beer Bottle", "Get lifted", "../resources/items/beerBottle.svg", 1200, 100);
+const beerBottle = new Item(player, "Beer Bottle", "Get lifted", "../resources/items/beerBottle.svg", 600, 160);
 document.getElementById('interior-container').appendChild(beerBottle.element);
 
-const baseballBat = new Item(player, "Baseball Bat", "Get lifted", "../resources/items/baseballBat.svg", 1300, 200);
+const baseballBat = new Item(player, "Baseball Bat", "Get lifted", "../resources/items/baseballBat.svg", 1350, 250);
 document.getElementById('interior-container').appendChild(baseballBat.element);
 
+const fent = new Item(player, "Opiate Syringe", "Brought to you by purdue", "../resources/items/fent.svg", 460, 150);
+document.getElementById('interior-container').appendChild(fent.element);
+
+const methPipe = new Item(player, "Meth Pipe", "Not even once", "../resources/items/smokingPipe.svg", 350, 160);
+document.getElementById('interior-container').appendChild(methPipe.element);
+
+}
   //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
  //           Spawn NPC            //
 //________________________________//
@@ -61,7 +69,7 @@ for (let i = 0; i <
         enemies.push(new Enemy());
 }}else{
     for (let i = 0; i < 
-        12 //patrons will spawn in the outside portions
+        0 //patrons will spawn in the outside portions
         ; i++) {
         enemies.push(new Enemy());
     }
@@ -70,30 +78,32 @@ for (let i = 0; i <
   //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
  //       Event Listeners          //
 //________________________________//
+// const spaceship = document.querySelector('#ufo');
+// spaceship.addEventListener('click', player.toggleUfo());
 
 document.addEventListener('keydown', (event) => {
                        switch (event.key) {
         case 'ArrowUp','w':
-            player.move(0, -1); // Move upwards
+            player.move(0, -.05); // Move upwards
             break;
         case 'ArrowDown','s':
-            player.move(0, 1); // Move downwards
+            player.move(0, .05); // Move downwards
             break;
         case 'ArrowLeft','a':
-            player.move(-1, 0); // Move to the left
+            player.move(-.05, 0); // Move to the left
             break;
         case 'ArrowRight','d':
-            player.move(1, 0); // Move to the right
+            player.move(.05, 0); // Move to the right
             break;
-                        // case 'Space':
-                        //     // Create a bullet and add it to the bullets array
-                        //     const bullet = new Bullet(player.x, player.y, 1, { x: 0, y: 0 });
-                        //     bullets.push(bullet);
-                        //     break;
                             case 'c':
                                 // Toggle between being in the car and on foot
                                 player.toggleCar();
                                 break;
+
+                                case 'u':
+                                    // Toggle between being in the car and on foot
+                                    player.toggleUfo();
+                                    break;
                     }
 }); // player car movement event listeners
 
@@ -128,6 +138,35 @@ document.addEventListener('keydown', (event) => {
                 break;
         }
     }
+    if (player.inUfo) {
+        switch (event.key) {
+            case 'ArrowLeft':
+                if (player.spaceship.isDrifting) {
+                    // Drifting left: Adjust the angle and enable drifting
+                    player.spaceship.setAngle(player.spaceship.angle - 15); // Adjust the angle as needed
+                    player.spaceship.isDrifting = true;
+                } else {
+                    // Turning left without drifting
+                    player.spaceship.setAngle(player.spaceship.angle - 15); // Adjust the angle as needed
+                }
+                break;
+            case 'ArrowRight':
+                if (player.spaceship.isDrifting) {
+                    // Drifting right: Adjust the angle and enable drifting
+                    player.spaceship.setAngle(player.spaceship.angle + 15); // Adjust the angle as needed
+                    player.spaceship.isDrifting = true;
+                } else {
+                    // Turning right without drifting
+                    player.spaceship.setAngle(player.spaceship.angle + 15); // Adjust the angle as needed
+                }
+                break;
+            
+            case ' ':
+                // Spacebar pressed: Enable drifting
+                player.car.isDrifting = true;
+                break;
+        }
+    }
 });
 
 document.addEventListener('keyup', (event) => {
@@ -145,6 +184,19 @@ document.addEventListener('keyup', (event) => {
                 break;
         }
     }
+    if (player.inUfo) {
+        switch (event.key) {
+            case 'ArrowLeft':
+            case 'ArrowRight':
+                // Stop drifting when left or right key is released
+                player.ufo.isDrifting = false;
+                break;
+            case ' ':
+                // Spacebar released: Disable drifting
+                player.ufo.isDrifting = false;
+                break;
+        }
+    }
 });
                 
 document.addEventListener('keydown', (event) => {
@@ -157,22 +209,6 @@ keysPressed[event.key] = false;
 handlePlayerMovement();
 });
 
- // Shooting Listeners
-//holding mouse down fires gun
-// document.addEventListener('mousedown', (event) => {
-//     player.shootBullet(event);
-    
-//     const shootInterval = setInterval(() => {
-//     player.shootBullet(event);
-//     },30); 
-                    
-//     //when you release mouse, it clears the interval so it doesnt keep shooting
-//     document.addEventListener('mouseup', () => {
-//     clearInterval(shootInterval);
-//     }, { once: true });
-    
-// });
-
 function handlePlayerMovement() {
     const directionX = (keysPressed['ArrowRight'] ? 1 : 0) + (keysPressed['ArrowLeft'] ? -1 : 0);
     const directionY = (keysPressed['ArrowDown'] ? 1 : 0) + (keysPressed['ArrowUp'] ? -1 : 0);
@@ -184,8 +220,6 @@ function handlePlayerMovement() {
    //‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾//
   //           Game Loop            //
  //________________________________//
-/* This is the main brain of the   /
-   the operations.               */
 
   // Game Loop
   function gameLoop() {
@@ -205,12 +239,6 @@ function handlePlayerMovement() {
         enemy.update();
     }
 
-    // // Update bullets and check for collisions
-    // for (const bullet of bullets) {
-    //     bullet.update();
-    //checkCollisionWithEnemies(enemies, bullets); // Remove `bullet` argument here
-    // }
-
     // Request the next animation frame
     requestAnimationFrame(gameLoop);
 }
@@ -220,7 +248,6 @@ function handlePlayerMovement() {
 // Call the gameLoop function to start the game loop
 gameLoop(player, sundayDriver, enemies, bullets);
 
-// function checkCollisionWithEnemies(enemies, bullets) {
 //     for (let i = bullets.length - 1; i >= 0; i--) {
 //         const bullet = bullets[i];
 //         const bulletRect = bullet.element.getBoundingClientRect();
@@ -308,11 +335,6 @@ function checkCarCollisionWithEnemies(player, enemies) {
         }
     }
 }
-
-
-
-
-
 
 // what happens when the player is hit by car?
 function handleCarCollision(player) {

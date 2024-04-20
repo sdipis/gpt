@@ -127,6 +127,19 @@ table {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.369);
 }
 
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently*/
+}
+
+.hidden {
+  display: none !important;
+}
+
 body {
   margin: 0;
   overflow: hidden;
@@ -139,13 +152,15 @@ body {
   overflow: hidden;
 }
 
-.sidewalk {
-  height: 60px !important;
-  top: 120px !important;
+#sidewalk {
+  height: 50px !important;
+  top: 160px !important;
+  border-top: 2px solid #606060;
+  border-bottom: 2px solid #606060;
   width: 100vw;
   background-image: url("../resources/concrete.jpg");
   background-repeat: repeat-x;
-  background-size: 60px;
+  background-size: 50px;
   background-position: center center;
   object-fit: contain;
   position: absolute;
@@ -206,7 +221,6 @@ body {
 #toll_1b {
   height: 180px;
   width: 5px;
-  background-color: red;
   position: absolute;
   right: 0px;
   top: 0px;
@@ -264,31 +278,18 @@ body {
 }
 
 #interior-container {
-  height: 20px !important;
+  background-color: transparent !important;
+}
+
+#highway {
   background-image: url("../resources/road.jpg");
   background-repeat: repeat;
-  background-size: 100px;
+  background-size: 160px;
   background-position: center center;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.75) inset;
-  z-index: -2;
-}
-#interior-container:before {
-  content: "";
-  height: 2px;
-  width: 100vw;
-  background-color: yellow;
-  position: absolute;
-  top: 65px;
-  left: 0px;
-}
-#interior-container:after {
-  content: "";
-  height: 2px;
-  width: 100vw;
-  background-color: yellow;
-  position: absolute;
-  top: 58px;
-  left: 0px;
+  width: 100%;
+  height: 160px;
+  z-index: -1;
 }
 
 .interior-container-two {
@@ -329,8 +330,15 @@ body {
   z-index: 2;
 }
 
+#car {
+  z-index: 3;
+}
 #car:before {
   content: url("../resources/svg/truck.svg");
+}
+
+.ufo:before {
+  content: url("../resources/vehicles/ufo.svg");
 }
 
 .npcCar {
@@ -370,11 +378,15 @@ body {
 }
 
 #building4 {
+  background-color: red;
+}
+
+#bar_model {
   position: absolute;
   top: 0px;
   background: none !important;
 }
-#building4:before {
+#bar_model:before {
   content: url("../resources/buildings/bar.svg");
   transform: none;
   top: 0px;
@@ -489,18 +501,18 @@ body {
   background-color: darkgreen;
   background-image: url("../resources/grass.jpg");
   background-repeat: repeat;
-  background-size: 60px;
+  background-size: 100px;
   background-position: center center;
 }
 
 .enemy {
-  position: absolute;
+  position: static;
   width: 30px;
   height: 30px;
   border-radius: 50% !important;
   border: 2px solid black;
   box-shadow: 0px 0px 3px black;
-  z-index: 2;
+  z-index: -3;
 }
 
 .enemy {
@@ -806,6 +818,7 @@ a {
   width: auto;
   position: fixed;
   border-radius: 25px;
+  min-height: 80px;
   bottom: 40px;
   left: 40px;
   height: auto;
@@ -884,8 +897,7 @@ a {
   padding: 0px;
   margin: 0px;
   text-align: center;
-  height: 60px;
-  width: 60px;
+  height: 40px;
   object-fit: contain;
   object-position: center center;
 }
@@ -905,11 +917,12 @@ a {
   }
 }
 #bar {
-  border: 5px solid rgb(0, 0, 0);
   background-image: url("../resources/wood_floor.jpg");
   background-repeat: repeat;
   background-size: 60px;
   background-position: center center;
+  height: 100vh;
+  width: 100vw;
   box-shadow: 0px 0px 150px black inset, 0px 0px 200px black inset, 0px 0px 250px black inset;
 }
 
@@ -932,15 +945,16 @@ a {
   background-repeat: repeat;
   background-size: 100px;
   background-position: center center;
-  z-index: 0;
+  z-index: -3;
   box-shadow: none !important;
   border-radius: 0px 0px 10px 0px !important;
 }
 
 #bar_carpet_outside {
-  background: repeating-linear-gradient(45deg, #bc6060, #bc6060 10px, #984646 10px, #984646 20px);
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.41);
-  z-index: 1;
+  background-image: url("../resources/textures/planks.jpg");
+  background-repeat: repeat;
+  background-size: 100px;
+  z-index: -6;
 }
 
 #gas_dumpster {
@@ -1286,4 +1300,30 @@ a {
 }
 #player-inventory .inventory-item p {
   display: none;
+}
+
+.inventoryScreen {
+  min-height: 80px;
+  min-width: 80px;
+  max-width: 400px;
+  z-index: 99 !important;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.inventoryScreen h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+.inventoryScreen div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.inventoryScreen div img {
+  height: 30px;
+  padding: 10px;
+  object-position: center center;
+  object-fit: contain;
 }/*# sourceMappingURL=index.css.map */
